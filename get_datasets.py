@@ -4,7 +4,7 @@ from termcolor import cprint
 #------------------------------------------------------------->
 start = time.time()
 coins = ['ethereum', 'dash']
-days = 60
+days = 4
 currency = 'btc'
 
 #------------------------------------------------------------->
