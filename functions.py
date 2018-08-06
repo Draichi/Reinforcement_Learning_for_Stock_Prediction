@@ -1,9 +1,14 @@
 import numpy as np
 import math
+from termcolor import colored
 
 # prints formatted price
 def formatPrice(n):
-	return ("-$" if n < 0 else "$") + "{0:.2f}".format(abs(n))
+	if n < 0:
+		return colored('-BTC {0:.7f}'.format(abs(n)), 'red')
+	else:
+		return colored('BTC {0:.7f}'.format(abs(n)), 'green')
+	# return ("-BTC " if n < 0 else "BTC ") + "{0:.7f}".format(abs(n))
 
 # returns the vector containing stock data from a fixed file
 def getStockDataVec(key):
@@ -11,7 +16,7 @@ def getStockDataVec(key):
 	lines = open("data/" + key + ".csv", "r").read().splitlines()
 
 	for line in lines[1:]:
-		vec.append(float(line.split(",")[4]))
+		vec.append(float(line.split(",")[1]))
 
 	return vec
 
