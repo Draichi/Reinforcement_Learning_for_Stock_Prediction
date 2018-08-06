@@ -5,9 +5,9 @@ from termcolor import colored
 # prints formatted price
 def formatPrice(n):
 	if n < 0:
-		return colored('-BTC {0:.7f}'.format(abs(n)), 'red')
+		return colored('-BTC {0:.7f}'.format(abs(n)), 'red', attrs=['bold'])
 	else:
-		return colored('BTC {0:.7f}'.format(abs(n)), 'green')
+		return colored('BTC {0:.7f}'.format(abs(n)), 'green', attrs=['bold'])
 	# return ("-BTC " if n < 0 else "BTC ") + "{0:.7f}".format(abs(n))
 
 # returns the vector containing stock data from a fixed file

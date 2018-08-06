@@ -16,7 +16,8 @@ try:
 	batch_size = 32
 
 	for e in range(episode_count + 1):
-		print(colored("Episode {}/{}\n".format(str(e), str(episode_count)), 'yellow'))
+		print(colored("      {}/BTC".format(stock_name), 'yellow', attrs=['bold']))
+		print(colored("> Episode {}/{}\n".format(str(e), str(episode_count)), 'yellow',  attrs=['bold']))
 		state = getState(data, 0, window_size + 1)
 
 		total_profit = 0
@@ -31,22 +32,21 @@ try:
 
 			if action == 1: # buy
 				agent.inventory.append(data[t])
-				print(colored("> {0:.7f}".format(data[t]), 'cyan'))
+				print(colored("> BTC {0:.7f}".format(data[t]), 'cyan'))
 
 			elif action == 2 and len(agent.inventory) > 0: # sell
 				bought_price = agent.inventory.pop(0)
 				reward = max(data[t] - bought_price, 0)
 				total_profit += data[t] - bought_price
-				print(colored("> {0:.7f} |".format(data[t]), 'yellow'), formatPrice(data[t] - bought_price))
-
+				print(colored("> BTC {0:.7f} |".format(data[t]), 'yellow'), formatPrice(data[t] - bought_price))
 			done = True if t == l - 1 else False
 			agent.memory.append((state, action, reward, next_state, done))
 			state = next_state
 
 			if done:
-				print(colored("\n------TOTAL PROFIT------", 'magenta'))
-				print('     '+ formatPrice(total_profit))
-				print(colored("------------------------\n",'magenta'))
+				print(colored("\n\n\n\n\n------TOTAL PROFIT------\n", 'cyan'))
+				print('   '+ formatPrice(total_profit))
+				print(colored("\n------------------------\n",'cyan'))
 
 			if len(agent.memory) > batch_size:
 				agent.expReplay(batch_size)
@@ -55,4 +55,5 @@ try:
 			agent.model.save("models/{}_model_ep{}_w{}_e{}".format(stock_name, str(e), window_size, episode_count))
 
 finally:
+	print(colored('               D O N E              ', 'white', 'on_green', attrs=['bold']))
 	exit()
