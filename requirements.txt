@@ -1,3 +1,5 @@
 numpy
 tensorflow
 keras
+termcolor
+pandas

@@ -27,13 +27,14 @@ To train the model, download a training and test csv files from [Yahoo! Finance]
 mkdir models
 pip3 install -r requirements.txt
 python3 train.py ^GSPC 10 1000
+python3 train.py dash_6-8_400-days_btc 10 1000
 ```
 
 Then when training finishes (minimum 200 episodes for results):
 ```
 python3 evaluate.py ^GSPC_2011 model_ep1000
+python3 evaluate.py dash_6-8_400-days_btc model_ep1000
 ```
-
 ## References
 
 [Deep Q-Learning with Keras and Gym](https://keon.io/deep-q-learning/) - Q-learning overview and Agent skeleton code
