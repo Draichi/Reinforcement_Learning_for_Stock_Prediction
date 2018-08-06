@@ -1,11 +1,9 @@
 import threading, requests, time, os, datetime
 import pandas as pd
 from termcolor import cprint
+from my_vars import coins, currency, days
 #------------------------------------------------------------->
 start = time.time()
-coins = ['ethereum', 'dash']
-days = 4
-currency = 'btc'
 
 #------------------------------------------------------------->
 def fetch_url(coin):

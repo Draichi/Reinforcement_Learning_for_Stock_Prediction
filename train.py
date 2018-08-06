@@ -7,8 +7,7 @@ try:
 	if len(sys.argv) != 4:
 		print(colored("Usage: python train.py [stock] [window] [episodes]", 'red'))
 		exit()
-
-	stock_name, window_size, episode_count = sys.argv[1], int(sys.argv[2]), int(sys.argv[3])
+	from my_vars import stock_name, window_size, episode_count
 
 	agent = Agent(window_size)
 	data = getStockDataVec(stock_name)
