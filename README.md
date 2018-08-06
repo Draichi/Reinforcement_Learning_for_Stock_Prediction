@@ -33,7 +33,8 @@ python3 train.py dash_6-8_400-days_btc 10 1000
 Then when training finishes (minimum 200 episodes for results):
 ```
 python3 evaluate.py ^GSPC_2011 model_ep1000
-python3 evaluate.py dash_6-8_400-days_btc model_ep1000
+python3 evaluate.py dash_60-days_btc dash_60-days_btc_model_ep40_w10_e1000 
+
 ```
 ## References
 
