@@ -51,7 +51,7 @@ try:
 				agent.expReplay(batch_size)
 
 		if e % 10 == 0:
-			agent.model.save("models/{}_model_ep{}_w{}_e{}".format(stock_name, str(e), window_size, episode_count))
+			agent.model.save("models/{}_e{}_w{}_c{}".format(stock_name, str(e), window_size, episode_count))
 
 finally:
 	print(colored('               D O N E              ', 'white', 'on_green', attrs=['bold']))
