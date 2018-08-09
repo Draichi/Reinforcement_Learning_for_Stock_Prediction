@@ -1,13 +1,14 @@
 import numpy as np
-import math
+import math, os
 from termcolor import colored
+width = os.get_terminal_size().columns
 
 # prints formatted price
 def formatPrice(n):
 	if n < 0:
-		return colored('-BTC {0:.7f}'.format(abs(n)), 'red', attrs=['bold'])
+		return colored('Total profit: -BTC {0:.6f}'.format(abs(n)).center(width), 'red', attrs=['bold'])
 	else:
-		return colored('BTC {0:.7f}'.format(abs(n)), 'green', attrs=['bold'])
+		return colored('Total profit: BTC {0:.7f}'.format(abs(n)).center(width), 'green', attrs=['bold'])
 	# return ("-BTC " if n < 0 else "BTC ") + "{0:.7f}".format(abs(n))
 
 # returns the vector containing stock data from a fixed file
